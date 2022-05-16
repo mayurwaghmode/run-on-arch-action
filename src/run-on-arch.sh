@@ -38,6 +38,10 @@ install_deps () {
   sudo apt-get update -q -y
   sudo apt-get -qq install -y qemu qemu-user-static
   docker run --rm --privileged multiarch/qemu-user-static --reset -p yes --credential yes
+  sudo apt-get install wget -y
+  wget https://github.com/redhat-openshift-ecosystem/openshift-preflight/releases/download/1.2.0/preflight-linux-ppc64le
+  chmod u+x preflight-linux-ppc64le
+  sudo mv preflight-linux-ppc64le /usr/local/bin/preflight
 }
 
 build_container () {
